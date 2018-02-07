@@ -2,6 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const routes = require("./routes/routes");
 const app = express();
+const mongoose = require("mongoose");
+
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost/muber");
 
 app.use(bodyParser.json());
 routes(app);
