@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const DriverSchema = new Schema({
   email: {
     type: String,
-    reuired: true
+    required: true
   },
   driving: {
     type: Boolean,
@@ -15,4 +15,3 @@ const DriverSchema = new Schema({
 const Driver = mongoose.model("driver", DriverSchema);
 
 module.exports = Driver;
-
