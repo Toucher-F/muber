@@ -35,4 +35,19 @@ describe("Drivers controller", () => {
         });
     });
   });
+
+  it("DELETE to /api/drivers/id deletes an existing driver", done => {
+    const driver = new Driver({ email: "t@t.com" });
+
+    driver.save().then(() => {
+      request(app)
+        .delete(`/api/drivers/${driver._id}`)
+        .end(() => {
+          Driver.findOne({ email: "t@t.com" }).then(result => {
+            assert(result === null);
+            done();
+          });
+        });
+    });
+  });
 });
